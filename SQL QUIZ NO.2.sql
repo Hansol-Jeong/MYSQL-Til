@@ -3,6 +3,13 @@ use world;
 SELECT Continent, count(Continent)
 FROM country
 GROUP BY Continent;
+
+select count(distinct(continent))
+from country;
+
+select continent from country group by continent;
+
+select count(*) from (select continent from country group by continent) as ct;
 -- 모르겠습니다.
 
 #Quiz 2: 국가 코드별 도시의 갯수를 출력하세요. (상위 5개를 출력)

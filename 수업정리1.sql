@@ -116,6 +116,54 @@ GROUP BY countrycode
 HAVING S_pop >=50000000
 ORDER BY S_POP DESC;
 
+use jbs;
+SELECT database(); -- 이게 뭐냐고
+CREATE TABLE user1(
+user_id INT,
+name varchar(20),
+email varchar(20),
+age INT(3),
+rDate DATE
+);
+show Tables;
+desc user1;
+
+INSERT INTO user1 (user_id, name, email, age, rDate)
+values(1, "Andy", "Andy@gmail.com", 23, "2020-10-01");
+SELECT * FROM user1;
+SHOW TABLES;
+DESC user1;--  왜 그대로 null입니까
+
+CREATE TABLE user2 (
+user_id INT PRIMARY KEY AUTO_INCREMENT,
+name varchar(20) NOT NULL,
+email varchar(20) unique NOT NULL,
+age INT(3) DEFAULT 30,
+rDate TIMESTAMP
+);
+
+INSERT INTO user2(name, email)
+values("ANDY", "ANDY@gmail.com");
+DESC user2;-- 의미를 잘 모르겠어
+
+use world;
+CREATE TABLE city2 (
+name varchar(50),
+countrycode char(3),
+population INT
+);
+INSERT INTO city2
+SELECT name, countrycode, population
+FROM city
+WHERE population >=8000000;
+
+SELECT * FROM city2;
+
+DROP TABLE city2;
+
+
+
+
 
 
 
